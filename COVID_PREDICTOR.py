@@ -155,12 +155,12 @@ train_datagen = ImageDataGenerator(
         horizontal_flip=True)
 test_datagen = ImageDataGenerator(rescale=1./255)
 train_dataset = train_datagen.flow_from_directory(
-        'F:/MLOPS/practise/ENVIRONMENT2/xray_dataset_covid19/train/',
+        '/covid_folder/xray_dataset_covid19/train/',
         target_size=(64,64),
         batch_size=32,
         class_mode='binary')
 test_dataset = test_datagen.flow_from_directory(
-        'F:/MLOPS/practise/ENVIRONMENT2/xray_dataset_covid19/test/',
+        '/covid_folder/xray_dataset_covid19/test/',
         target_size=(64,64),
         batch_size=32,
         class_mode='binary')
