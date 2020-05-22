@@ -165,7 +165,7 @@ test_dataset = test_datagen.flow_from_directory(
         target_size=(64,64),
         batch_size=32,
         class_mode='binary')
-model.fit(
+working=model.fit(
         train_dataset,
         steps_per_epoch=5,
         epochs=1,
@@ -189,3 +189,9 @@ model.save('covid19_predictor.h5')
 
 
 train_dataset.class_indices
+
+accuracy_of_model=working.history.get('accuracy')[-1]
+
+file=open('accuracy.txt','w')
+file.write(accuracy_of_model)
+file.close()
