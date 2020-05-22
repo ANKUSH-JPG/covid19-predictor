@@ -167,8 +167,8 @@ test_dataset = test_datagen.flow_from_directory(
         class_mode='binary')
 model.fit(
         train_dataset,
-        steps_per_epoch=500,
-        epochs=4,
+        steps_per_epoch=5,
+        epochs=1,
         validation_data=test_dataset,
         validation_steps=800)
 
