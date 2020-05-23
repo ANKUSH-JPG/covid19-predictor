@@ -190,7 +190,8 @@ model.save('covid19_predictor.h5')
 
 train_dataset.class_indices
 
-accuracy_of_model=working.history.get('accuracy')[-1]
+accuracy_of_model=str(working.history.get('accuracy')[-1])
+type(accuracy_of_model)
 
 file=open('accuracy.txt','w')
 file.write(accuracy_of_model)
