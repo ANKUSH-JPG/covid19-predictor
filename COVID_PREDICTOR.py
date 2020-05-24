@@ -39,7 +39,7 @@ from keras.optimizers import Adam
 
 
 # In[ ]:
-
+import yaml
 
 
 
@@ -147,6 +147,20 @@ from keras_preprocessing.image import ImageDataGenerator
 
 
 # In[22]:
+config_vals = ""
+with open("config.yaml", "r") as cr:
+   config_vals = yaml.load(cr)
+
+spc = config_vals['spc']
+ep = config_vals['ep']
+print("steps per epoch = "+spc)
+print("epochs = "+ep)
+
+config_vals['spc'] = spc + 100
+config_vals['ep'] = ep + 1
+
+with open("config.yaml", "w") as cw:
+   yaml.dump(config_vals, cw, default_flow_style=True)
 
 
 train_datagen = ImageDataGenerator(
@@ -167,8 +181,8 @@ test_dataset = test_datagen.flow_from_directory(
         class_mode='binary')
 working=model.fit(
         train_dataset,
-        steps_per_epoch=5,
-        epochs=1,
+        steps_per_epoch=spc,
+        epochs=ep,
         validation_data=test_dataset,
         validation_steps=800)
 
