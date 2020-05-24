@@ -29,7 +29,7 @@ file.close()
 # In[11]:
 
 
-Text="THE ACCURACY OF THE MODEL IS:"
+Text="THE ACCURACY OF THE MODEL IS"
 
 message=Text+" "+accuracy
 
